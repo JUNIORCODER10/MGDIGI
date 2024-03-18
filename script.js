@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // Ajoutez ici le code pour afficher le message de confirmation
       alert('Votre message a été envoyé avec succès!');
       // Ou redirigez l'utilisateur vers une autre page
-       window.location.href = 'index.html';
+       window.location.href = 'https://mgdigi.github.io/mgdigi/#home';
   });
 });
 
