@@ -127,8 +127,10 @@ document.addEventListener('DOMContentLoaded', function () {
       event.preventDefault();
       // Ajoutez ici le code pour afficher le message de confirmation
       alert('Votre message a été envoyé avec succès!');
+      // Réinitialiser les champs du formulaire
+      form.reset();
       // Ou redirigez l'utilisateur vers une autre page
-       window.location.href = 'https://mgdigi.github.io/mgdigi/#home';
+      // window.location.href = 'confirmation.html';
   });
 });
 
