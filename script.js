@@ -121,6 +121,15 @@ scrollBottom.forEach((el)=>observer.observe(el));
 const scrollTop = document.querySelectorAll('.scroll-top')
 scrollBottom.forEach((el)=>observer.observe(el));
 
-
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.querySelector('form');
+  form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      // Ajoutez ici le code pour afficher le message de confirmation
+      alert('Votre message a été envoyé avec succès!');
+      // Ou redirigez l'utilisateur vers une autre page
+       window.location.href = 'index.html';
+  });
+});
 
 
