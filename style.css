@@ -199,7 +199,7 @@ section {
 }
 
 .info-box span{
-    font-size: .5rem;
+    font-size: .6rem;
     color: #bdbdbd;
 }
 
@@ -514,78 +514,158 @@ section {
     grid-column-gap: 50px;
   }
 
-  .skill-bar{
-    margin-bottom: 2.3rem;
-  }
-
-  .skill-main h3{
-    margin-bottom: 2rem;
-    font-size: var(--normal-font);
-    text-align: center;
-  }
-
-  .skill-left .skill-bar .info{
+  .skill-left {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 40px; /* Plus d'espacement entre les sections */
     align-items: center;
-    padding: 0 10px;
-  }
+    padding: 20px;
+    background-color: #250821; /* Ajout d'un fond clair pour plus de contraste */
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* Ajout d'une ombre subtile */
+}
 
-  .skill-left .skill-bar .bar{
+.skill-left h3 {
+    font-size: 1.8rem;
+    color: #ffffff; /* Couleur plus douce pour le titre */
+    margin-bottom: 10px;
+    text-transform: uppercase; /* Style du texte */
+    font-weight: bold;
+    border-bottom: 2px solid #007bff; /* Ligne de séparation pour le titre */
+    padding-bottom: 5px;
+}
 
-    width: 100%;
-    height: 10px;
-    background-color: var(--bg-color);
-    border-radius: 25px;
-    margin-top: 10px;
+.skill-item {
+    display: flex;
+    justify-content: center; /* Centrer les images */
+    gap: 30px; /* Espacement entre les images */
+    flex-wrap: wrap; /* Permet de passer à la ligne si l'écran est étroit */
+    padding: 10px;
+}
+
+.skill-item img {
+    width: 90px; /* Ajustez selon vos besoins */
+    height: 90px;
+    border-radius: 12px; /* Bords arrondis */
+    border: 2px solid #ddd; /* Ajout d'une bordure légère */
+    background-color: #fff; /* Fond blanc pour mieux contraster avec les logos */
+    padding: 10px; /* Espacement interne pour les logos */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1); /* Ombre pour donner un effet de relief */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition pour les animations */
+}
+
+.skill-item img:hover {
+    transform: scale(1.1); /* Zoom au survol */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol */
+    border-color: #007bff; /* Changement de couleur de la bordure au survol */
+}
+
+@media screen and (max-width: 768px) {
+    .skill-item img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .skill-left h3 {
+        font-size: 1.5rem;
+    }
+
+    .skill-item {
+        gap: 20px; /* Réduit l'espacement pour les petits écrans */
+    }
+}
+
+.skill-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* Espacement entre les sections */
+    padding: 20px;
+    background-color: #250821; /* Fond clair pour contraste */
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+}
+
+.skill-right h3 {
+    font-size: 1.8rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-bottom: 2px solid #007bff; /* Ligne colorée sous le titre */
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+.professional {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adaptation dynamique */
+    gap: 20px; /* Espacement entre les cartes */
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation au survol */
+}
+
+.box:hover {
+    transform: scale(1.05); /* Zoom au survol */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Ombre accentuée */
+}
+
+.circle {
     position: relative;
-  }
+    width: 100px; /* Diamètre du cercle */
+    height: 100px;
+    background: conic-gradient(
+        #333 calc(var(--percent) * 1%), 
+        #ddd calc(var(--percent) * 1%)
+    ); /* Effet de cercle progressif */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-  .skill-bar .bar span{
-     width: 50%;
-     height: 100%;
-     position: absolute;
-     left: 0;
-     background: var(--hover-color);
-     border-radius: 25px;
-     box-shadow: var(--neon-box-shadow);
-  }
+.circle::before {
+    content: '';
+    width: 85px; /* Taille du cercle intérieur */
+    height: 85px;
+    background: #ffffff;
+    border-radius: 50%;
+}
 
-  .skill-bar .bar .web-design{
-    width: 95%;
-    animation: web-design 7s;
-  }
+.circle::after {
+    content: attr(data-percent) '%';
+    position: absolute;
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: bold;
+}
 
-  .skill-bar .bar .frontend{
-     width: 88%;
-     animation: frontend 6s;
-  }
+.text {
+    margin-top: 10px;
+}
 
-  .skill-bar .bar .git{
-    width: 82%;
-    animation: git 3s;
- }
+.text big {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: bold;
+}
 
- .skill-bar .bar .design {
-    width: 85%;
-    animation: design 5s;
- }
+.text small {
+    font-size: 0.9rem;
+    color: #666;
+}
 
- .skill-bar .bar .graphic-design{
-    width: 74%;
-    animation: graphic-design 2s;
- }
-
- .skill-bar .bar .mobile-developper{
-    width: 83%;
-    animation: mobile-developper 4s;
- }
-
- .skill-bar .bar .cms{
-    width: 90%;
-    animation: mobile-developper 4s;
- }
-
+  
  .professional{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
